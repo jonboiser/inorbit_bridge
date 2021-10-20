@@ -18,7 +18,10 @@ def start_mock_app():
         global start_counting
         cmd_msg = data.data
 
-        if cmd_msg == 'start':
+        if cmd_msg == 'reset':
+            pub_status('stopped')
+            start_counting = False
+        elif cmd_msg == 'start':
             pub_status('start_pending')
             time.sleep(10)
             pub_status('running')
