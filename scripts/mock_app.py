@@ -13,6 +13,7 @@ def start_mock_app():
 
     def pub_status(status):
         pub.publish(f"app_status={status}")
+        rospy.loginfo(f"app_status={status}")
 
     def callback(data):
         global start_counting
@@ -40,6 +41,7 @@ def start_mock_app():
     rospy.init_node('mock_app', anonymous=True)
 
     rospy.Subscriber('mock_app_cmds', String, callback)
+    rospy.loginfo('node started')
 
     while not rospy.is_shutdown():
         if start_counting:
