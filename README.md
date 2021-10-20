@@ -3,18 +3,20 @@
 1. Setup
 ```bash
 source /opt/ros/noetic/setup.bash
-git clone` this repo to `~/Code/catkin_ws/src`, then `catkin_make`
+cd ~/Code/catkin_ws
+git clone https://github.com/jonboiser/inorbit_demo.git
+catkin_make
 ```
 1. Install InOrbit agent
 1. Change custom scripts location
 
 ```bash
 # this will override the previous export
-echo "\nexport INORBIT_ACTIONS_PATH=\"$(pwd)/user_scripts\"" >> ~/.inorbit/local/agent.env.sh
+printf '\nexport INORBIT_ACTIONS_PATH="%s/user_scripts"\n' $(pwd) >> ~/.inorbit/local/agent.env.sh
 ```
 4. Start `roscore` in one terminal
 1. Run this app in another terminal
 
 ```
-source ~/Code/catkin_ws/src/
+source ~/Code/catkin_ws/devel/setup.bash
 ```
